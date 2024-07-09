@@ -7,7 +7,7 @@ const getTodo = async (todoId: number) => {
   try{  
     const resTodo = await axios.get(`https://jsonplaceholder.typicode.com/todos/${todoId}`);
     const todo = resTodo.data;
-    const userId = todo.userID ;
+    const userId = todo.userId ;
 
     const resUser = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`);
     const user = resUser.data;
@@ -16,7 +16,7 @@ const getTodo = async (todoId: number) => {
       owner:user.name,
       title : todo.title,
       completed: todo.completed,
-    };
+    }; 
     return new_todo;;
 
   }
